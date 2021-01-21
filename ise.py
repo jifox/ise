@@ -276,7 +276,7 @@ class ERS(object):
         else:
             return ERS._pass_ersresponse(result, resp)
 
-    def get_endpoints(self, groupID=None, size=20, page=1):
+    def get_endpoints(self, groupID=None, mac=None, size=20, page=1):
         """
         Get all endpoints.
 
@@ -285,6 +285,8 @@ class ERS(object):
         """
         if groupID:
             filter = f"groupId.EQ.{groupID}"
+        elif mac:
+            fiter = f"mac.EQ.{mac}"
         else:
             filter = None
 
